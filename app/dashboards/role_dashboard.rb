@@ -9,7 +9,7 @@ class RoleDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    name: Field::Number,
+    name: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     users: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -60,7 +60,7 @@ class RoleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how roles are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(role)
-  #   "Role ##{role.id}"
-  # end
+  def display_resource(role)
+    role.name
+  end
 end
