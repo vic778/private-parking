@@ -36,8 +36,26 @@ gem "redis", "~> 4.0"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+# Additional gems
+gem 'activeadmin'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'devise'
+gem 'dotenv-rails'
+gem 'figaro'
+gem 'httparty', '~> 0.20.0'
+gem 'jwt'
+gem 'omniauth-google-oauth2'
+gem "pundit"
+gem 'rack-cors'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
+gem 'sidekiq', '~> 6.5', '>= 6.5.6'
+gem 'sidekiq-scheduler'
+gem 'sinatra'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -50,7 +68,14 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'letter_opener'
+  gem 'pry'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'rubocop'
+  gem 'shoulda-matchers'
 end
 
 group :development do
