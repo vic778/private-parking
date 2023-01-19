@@ -12,9 +12,9 @@ module Admin
 
     def authenticate_admin
       authenticate_user!
-      
+
       # binding.pry
-      
+
       unless current_user.is_admin?
         flash[:alert] = "You are not authorized to access this page."
         redirect_back(fallback_location: root_path)
