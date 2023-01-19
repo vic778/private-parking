@@ -38,12 +38,11 @@ gem "redis", "~> 4.0"
 
 # Additional gems
 gem 'administrate', '~> 0.18.0'
-gem "jsonapi-serializer", "~> 2.2"
+gem 'bullet', '~> 7.0', '>= 7.0.7'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'figaro'
-gem 'bullet', '~> 7.0', '>= 7.0.7'
-gem "tailwindcss-rails", "~> 2.0"
+gem "jsonapi-serializer", "~> 2.2"
 gem 'jwt'
 gem 'omniauth-google-oauth2'
 gem "pundit"
@@ -54,6 +53,7 @@ gem 'rswag-ui'
 gem 'sidekiq', '~> 6.5', '>= 6.5.6'
 gem 'sidekiq-scheduler'
 gem 'sinatra'
+gem "tailwindcss-rails", "~> 2.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
