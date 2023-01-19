@@ -6,4 +6,6 @@ class Role < ApplicationRecord
     user: 0,
     admin: 1
   }
+
+  validates :name, presence: true, uniqueness: true
 end
