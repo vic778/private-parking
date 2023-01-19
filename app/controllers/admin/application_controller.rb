@@ -8,11 +8,15 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     include Devise::Controllers
 
-    before_action :authenticate_user!
+    before_action :authenticate_admin
 
-    def require_admin
-      unless current_user.admin?
-        flash[:alert] = "You are not authorized to perform this action."
+    def authenticate_admin
+      authenticate_user!
+      
+      # binding.pry
+      
+      unless current_user.is_admin?
+        flash[:alert] = "You are not authorized to access this page."
         redirect_back(fallback_location: root_path)
       end
     end
