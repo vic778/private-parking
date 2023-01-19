@@ -6,10 +6,15 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
+    include Devise::Controllers
 
-    def authenticate_admin
-      # TODO Add authentication logic here.
+    before_action :authenticate_user!
+
+    def require_admin
+      unless current_user.admin?
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_back(fallback_location: root_path)
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
