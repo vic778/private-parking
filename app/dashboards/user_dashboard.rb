@@ -9,20 +9,20 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    name: Field::String,
+    email: Field::String,
+    role: Field::BelongsTo,
     confirmation_sent_at: Field::DateTime,
     confirmation_token: Field::String,
     confirmed_at: Field::DateTime,
     current_sign_in_at: Field::DateTime,
     current_sign_in_ip: Field::String,
-    email: Field::String,
     encrypted_password: Field::String,
     last_sign_in_at: Field::DateTime,
     last_sign_in_ip: Field::String,
-    name: Field::String,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
-    role: Field::BelongsTo,
     sign_in_count: Field::Number,
     unconfirmed_email: Field::String,
     created_at: Field::DateTime,
@@ -45,20 +45,20 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    name
+    email
+    role
     confirmation_sent_at
     confirmation_token
     confirmed_at
     current_sign_in_at
     current_sign_in_ip
-    email
     encrypted_password
     last_sign_in_at
     last_sign_in_ip
-    name
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    role
     sign_in_count
     unconfirmed_email
     created_at
@@ -69,20 +69,20 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    name
+    email
+    role
     confirmation_sent_at
     confirmation_token
     confirmed_at
     current_sign_in_at
     current_sign_in_ip
-    email
     encrypted_password
     last_sign_in_at
     last_sign_in_ip
-    name
     remember_created_at
     reset_password_sent_at
     reset_password_token
-    role
     sign_in_count
     unconfirmed_email
   ].freeze
@@ -102,7 +102,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    user.email
+  end
 end
