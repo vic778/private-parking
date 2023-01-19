@@ -1,4 +1,4 @@
 FactoryBot.define do
-  name { "MyString" }
-  email { "MyString" }
+#   name { "MyString" }
+#   email { "MyString" }
 end
