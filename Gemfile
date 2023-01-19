@@ -37,12 +37,13 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Additional gems
-gem 'activeadmin'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'administrate', '~> 0.18.0'
+gem "jsonapi-serializer", "~> 2.2"
 gem 'devise'
 gem 'dotenv-rails'
 gem 'figaro'
-gem 'httparty', '~> 0.20.0'
+gem 'bullet', '~> 7.0', '>= 7.0.7'
+gem "tailwindcss-rails", "~> 2.0"
 gem 'jwt'
 gem 'omniauth-google-oauth2'
 gem "pundit"
