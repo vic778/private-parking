@@ -10,15 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_19_114640) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_072648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "parkings", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "open_time"
+    t.datetime "close_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.integer "name", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_roles_on_name"
+  end
+
+  create_table "slot_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "parking_id", null: false
+    t.index ["parking_id"], name: "index_slot_types_on_parking_id"
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "open_time"
+    t.datetime "close_time"
+    t.integer "status", default: 0
+    t.bigint "slot_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slot_type_id"], name: "index_slots_on_slot_type_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,5 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_114640) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "slot_types", "parkings"
+  add_foreign_key "slots", "slot_types"
   add_foreign_key "users", "roles"
 end

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :roles
       resources :users
+      resources :parkings
+      resources :slot_types
+      resources :slots
 
       root to: "roles#index"
     end
