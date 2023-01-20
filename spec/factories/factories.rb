@@ -45,4 +45,11 @@ FactoryBot.define do
 
     association :slot_type, factory: :slot_type
   end
+
+  factory :reservation do
+    date_and_time { "2023-01-20 12:55:34" }
+    totat_price { 1 }
+    slot_type { "MyString" }
+    slot { nil }
+  end
 end
