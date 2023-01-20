@@ -10,6 +10,7 @@ class SlotDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    reservation: Field::HasOne,
     price: Field::Number.with_options(decimals: 2),
     open_time: Field::DateTime,
     close_time: Field::DateTime,
@@ -32,6 +33,7 @@ class SlotDashboard < Administrate::BaseDashboard
     status
     close_time
     open_time
+    reservation
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,6 +46,7 @@ class SlotDashboard < Administrate::BaseDashboard
     close_time
     status
     slot_type
+    reservation
     created_at
     updated_at
   ].freeze
@@ -58,6 +61,7 @@ class SlotDashboard < Administrate::BaseDashboard
     close_time
     status
     slot_type
+    reservation
   ].freeze
 
   # COLLECTION_FILTERS

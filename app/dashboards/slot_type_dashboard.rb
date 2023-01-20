@@ -11,6 +11,7 @@ class SlotTypeDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     parking: Field::BelongsTo,
+    slots: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,6 +25,7 @@ class SlotTypeDashboard < Administrate::BaseDashboard
     id
     name
     parking
+    slots
     created_at
   ].freeze
 
@@ -33,6 +35,7 @@ class SlotTypeDashboard < Administrate::BaseDashboard
     id
     name
     parking
+    slots
     created_at
     updated_at
   ].freeze
@@ -43,6 +46,7 @@ class SlotTypeDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     name
     parking
+    slots
   ].freeze
 
   # COLLECTION_FILTERS
