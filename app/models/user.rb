@@ -26,6 +26,14 @@ class User < ApplicationRecord
     save!
   end
 
+  def requires_confirmation?
+    !confirmed?
+  end
+
+  def generate_jwt
+    JWT.encode({ id:, exp: 30.days.from_now.to_i }, 'vicSecret')
+  end
+
   private
 
   def set_default_role
