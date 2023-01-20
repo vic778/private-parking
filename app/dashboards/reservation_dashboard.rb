@@ -16,6 +16,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     number_of_hours: Field::Number,
     status: Field::String,
     slot: Field::BelongsTo,
+    customer: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -34,6 +35,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     total_price
     status
     slot
+    customer
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -47,6 +49,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     total_price
     status
     slot
+    customer
     created_at
     updated_at
   ].freeze
@@ -62,6 +65,7 @@ class ReservationDashboard < Administrate::BaseDashboard
     slot_type
     status
     slot
+    customer
   ].freeze
 
   # COLLECTION_FILTERS

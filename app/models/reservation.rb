@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :slot
+  belongs_to :customer, class_name: 'User', foreign_key: 'user_id'
 
   validates :from, :to, presence: true
   validates :number_of_hours, numericality: { greater_than: 0 }, if: :number_of_hours?
