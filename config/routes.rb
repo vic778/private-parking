@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
   devise_for :users
+
+  namespace :api do
+      devise_scope :user do
+        post 'login', to: 'sessions#create'
+        put 'user', to: 'users#update'
+      end
+  end
 end
