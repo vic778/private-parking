@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_20_135304) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_160129) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_135304) do
     t.datetime "updated_at", null: false
     t.string "status", default: "pending"
     t.integer "number_of_hours", default: 1
+    t.bigint "user_id", null: false
     t.index ["slot_id"], name: "index_reservations_on_slot_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -102,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_135304) do
 
   add_foreign_key "bookings", "slots"
   add_foreign_key "reservations", "slots"
+  add_foreign_key "reservations", "users"
   add_foreign_key "slot_types", "parkings"
   add_foreign_key "slots", "slot_types"
   add_foreign_key "users", "roles"
