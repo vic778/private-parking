@@ -37,6 +37,7 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Additional gems
+gem 'activerecord-postgresql-adapter'
 gem 'administrate', '~> 0.18.0'
 gem 'bullet', '~> 7.0', '>= 7.0.7'
 gem 'devise'
