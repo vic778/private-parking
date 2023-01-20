@@ -1,6 +1,6 @@
 class Slot < ApplicationRecord
   belongs_to :slot_type
-  # after_initialize :set_default_status
+  has_one :reservation
 
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true
@@ -14,7 +14,4 @@ class Slot < ApplicationRecord
     closed: 2
   }
 
-  # def set_default_status
-  #   self.status ||= :available
-  # end
 end
