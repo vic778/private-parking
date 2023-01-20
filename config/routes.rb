@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :parkings
       resources :slot_types
       resources :slots
+      resources :reservations
 
       root to: "roles#index"
     end
