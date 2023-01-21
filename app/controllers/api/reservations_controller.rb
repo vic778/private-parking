@@ -1,7 +1,7 @@
 module Api
   class ReservationsController < PermissionsController
     before_action :authenticate_user!
-    before_action :set_reservation, only: %i[show update destroy]
+    before_action :set_reservation, only: %i[show update destroy cancel]
 
     def index
       reservations = current_user.reservations
@@ -30,6 +30,18 @@ module Api
         render json: @reservation
       else
         render json: @reservation.errors, status: :unprocessable_entity
+      end
+    end
+
+    def cancel
+      reservation = Reservation.find(params[:id])
+      service = Online::ReservationService.new(current_user, reservation.slot)
+      result = service.cancel_reservation(reservation)
+      # binding.pry
+      if result[:success]
+        render json: { message: result[:message], reservation: result[:reservation] }, status: :ok
+      else
+        render json: { error: result[:message] }, status: :unprocessable_entity
       end
     end
 
