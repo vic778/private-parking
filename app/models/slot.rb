@@ -14,5 +14,4 @@ class Slot < ApplicationRecord
     booked: 1,
     closed: 2
   }
-  
 end
