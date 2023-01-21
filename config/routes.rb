@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       devise_scope :user do
         post 'login', to: 'sessions#create'
         put 'user', to: 'users#update'
+        get 'user', to: 'users#show'
       end
+      resources :slots
+      get 'search_slots', to: 'slots#search_slots'
   end
 end
