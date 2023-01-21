@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_20_160129) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_21_160402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_160129) do
     t.string "status", default: "pending"
     t.integer "number_of_hours", default: 1
     t.bigint "user_id", null: false
+    t.datetime "cancelled_at"
+    t.float "cancellation_charge"
     t.index ["slot_id"], name: "index_reservations_on_slot_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
