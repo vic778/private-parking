@@ -25,9 +25,11 @@ class ParkingDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    address
-    close_time
     name
+    address
+    open_time
+    close_time
+    slot_types
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

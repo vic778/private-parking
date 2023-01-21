@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :parkings
       resources :slot_types
       resources :slots
+      resources :reservations
+      resources :bookings
 
       root to: "roles#index"
     end
@@ -21,6 +23,10 @@ Rails.application.routes.draw do
       devise_scope :user do
         post 'login', to: 'sessions#create'
         put 'user', to: 'users#update'
+        get 'user', to: 'users#show'
       end
+      resources :slots
+      get 'search_slots', to: 'slots#search_slots'
+      resources :reservations
   end
 end

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
 
   belongs_to :role
+  has_many :reservations
   after_initialize :set_default_role
 
   validates :name, presence: true
