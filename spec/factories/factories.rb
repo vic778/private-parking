@@ -51,10 +51,9 @@ FactoryBot.define do
     totat_price { 1 }
     slot_type { "MyString" }
     number_of_hours { 1 }
-     
+
     association :slot, factory: :slot
     association :customer, factory: :user
-
   end
 
   factory :booking do
