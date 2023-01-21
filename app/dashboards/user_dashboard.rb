@@ -12,6 +12,7 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     role: Field::BelongsTo,
+    reservations: Field::HasMany,
     confirmation_sent_at: Field::DateTime,
     confirmation_token: Field::String,
     confirmed_at: Field::DateTime,
@@ -36,6 +37,10 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    name
+    email
+    role
+    reservations
     confirmation_sent_at
     confirmation_token
     confirmed_at
@@ -48,6 +53,7 @@ class UserDashboard < Administrate::BaseDashboard
     name
     email
     role
+    reservations
     confirmation_sent_at
     confirmation_token
     confirmed_at
