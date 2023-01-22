@@ -54,6 +54,8 @@ Style/RedundantArgument:
   Enabled: false
 Lint/UselessAssignment:
   Enabled: false
+Lint/Void:
+  Enabled: false
 Lint/RedundantDirGlobSort:
   Enabled: false
 

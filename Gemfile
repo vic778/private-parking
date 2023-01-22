@@ -75,7 +75,7 @@ group :development, :test do
   gem 'faker'
   gem 'letter_opener'
   gem 'pry'
-  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'rspec-rails'
   gem 'rubocop'
   gem 'shoulda-matchers'
 end
