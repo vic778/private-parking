@@ -25,6 +25,10 @@ FactoryBot.define do
     trait :admin do
       association :role, factory: :role, name: 'admin'
     end
+
+    trait :with_confirmed_email do
+      confirmed_at { Time.now }
+    end
   end
 
   factory :parking do
