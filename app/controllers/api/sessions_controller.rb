@@ -12,7 +12,8 @@ module Api
                  status: 401 and return
         else
           # render the template for the user
-          render 'api/users/current_user', status: :created
+          render json: { user: { id: user.id, email: user.email, name: user.name, role: user.role.name, token: user.generate_jwt } }
+          # render 'api/users/current_user', status: :created
         end
       else
         render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
