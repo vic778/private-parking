@@ -62,6 +62,8 @@ FactoryBot.define do
     total_price { "MyString" }
     ref_code { "MyString" }
     license_plate { "MyString" }
-    slot { nil }
+    status { "pneding" }
+
+    association :reservation, factory: :reservation
   end
 end
