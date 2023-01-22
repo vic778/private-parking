@@ -53,8 +53,9 @@ FactoryBot.define do
   end
 
   factory :reservation do
-    date_and_time { "2023-01-20 12:55:34" }
-    totat_price { 1 }
+    from { "2023-01-20 12:55:34" }
+    to { "2023-01-20 12:55:34" }
+    total_price { "10" }
     slot_type { "MyString" }
     number_of_hours { 1 }
 
