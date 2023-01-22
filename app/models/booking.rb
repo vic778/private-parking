@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   private
 
   def set_arrival_time
-    self.arrival_time = Time.now
+    self.arrival_time = Time.zone.now
   end
 
   def set_left_time_to_nil
