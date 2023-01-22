@@ -10,9 +10,9 @@
   - Reservation model 
   - Booking Model
   
-### Video Demo
+### ADMIN Dashboard
+![img](app/assets/images/screen1.png)
 
-  
 ### ERD PG
 ![img](app/assets/images/screen.png)
 
