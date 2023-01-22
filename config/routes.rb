@@ -27,10 +27,13 @@ Rails.application.routes.draw do
       end
       resources :slots
       get 'search_slots', to: 'slots#search_slots'
+      get 'customer_slots', to: 'reservations#customer_slots'
       resources :reservations do
         member do
           put :cancel
         end
       end
+      resources :bookings
+      put 'check_in', to: 'bookings#check_in'
   end
 end

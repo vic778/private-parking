@@ -1,7 +1,7 @@
 module Api
   class ReservationsController < PermissionsController
     before_action :authenticate_user!
-    before_action :set_reservation, only: %i[show update destroy cancel]
+    before_action :set_reservation, only: %i[show update cancel]
 
     def index
       reservations = current_user.reservations
@@ -10,6 +10,11 @@ module Api
 
     def show
       render json: @reservation
+    end
+
+    def customer_slots
+      slots = current_user.reservations.includes(:slot).map(&:slot)
+      render json: slots
     end
 
     def create
@@ -45,14 +50,10 @@ module Api
       end
     end
 
-    def destroy
-      @reservation.destroy
-    end
-
     private
 
     def set_reservation
-      @reservation = Reservation.find(params[:id])
+      @reservation = current_user.reservations.find(params[:id])
     end
 
     def reservation_params
