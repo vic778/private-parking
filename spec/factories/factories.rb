@@ -37,7 +37,7 @@ FactoryBot.define do
   end
 
   factory :slot_type do
-    name { "MyString" }
+    name { "car" }
 
     association :parking, factory: :parking
   end
