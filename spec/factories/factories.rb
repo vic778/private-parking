@@ -28,10 +28,12 @@ FactoryBot.define do
   end
 
   factory :parking do
-    name { "MyString" }
+    sequence :name do |n|
+      "Parking #{n}"
+    end
     address { "MyString" }
-    open_time { "2023-01-20 10:17:56" }
-    close_time { "MyString" }
+    open_time { "2023-01-25 10:17:56" }
+    close_time { "2023-01-25 10:17:56" }
   end
 
   factory :slot_type do
