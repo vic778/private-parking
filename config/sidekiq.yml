@@ -1,0 +1,5 @@
+:schedule:
+  cancel_expired_reservations:
+    cron: '0 0 * * *'
+    class: CancelExpiredReservationsWorker
+    queue: default
