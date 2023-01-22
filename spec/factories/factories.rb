@@ -53,8 +53,8 @@ FactoryBot.define do
   end
 
   factory :reservation do
-    from { "2023-01-20 12:55:34" }
-    to { "2023-01-20 12:55:34" }
+    from { "2023-01-29 12:55:34" }
+    to { "2023-02-25 12:55:34" }
     total_price { "10" }
     slot_type { "MyString" }
     number_of_hours { 1 }
@@ -64,13 +64,13 @@ FactoryBot.define do
   end
 
   factory :booking do
-    arrival_time { "MyString" }
+    arrival_time { "2023-01-24 12:55:34" }
     left_time { "MyString" }
     total_price { "MyString" }
     ref_code { "MyString" }
     license_plate { "MyString" }
     status { "pneding" }
 
-    association :reservation, factory: :reservation
+    association :slot, factory: :slot
   end
 end
