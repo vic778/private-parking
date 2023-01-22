@@ -16,7 +16,11 @@ FactoryBot.define do
 
     password { "password" }
 
-    association :role, factory: :role, name: 'user'
+    association :role, factory: :role
+
+    trait :user do
+      association :role, factory: :role, name: 'user'
+    end
 
     trait :admin do
       association :role, factory: :role, name: 'admin'
