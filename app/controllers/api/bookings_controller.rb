@@ -1,8 +1,7 @@
 class Api::BookingsController < PermissionsController
   def create
-    service = OnArrival::BookingService.new(params)
+    service = OnArrival::BookingService.new(booking_params)
     result = service.call
-    # binding.pry
     if result[:success]
       render json: { message: result[:message], booking: result[:booking] }, status: :ok
     else

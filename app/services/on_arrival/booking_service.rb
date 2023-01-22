@@ -2,7 +2,6 @@ class OnArrival::BookingService
   attr_reader :slot, :params
 
   def initialize(params)
-    @slot = slot
     @params = params
   end
 
@@ -12,7 +11,7 @@ class OnArrival::BookingService
 
   def create_booking(slot_id)
     # binding.pry
-    slot = Slot.find(slot_id)
+    slot = Slot.find_by(id: slot_id)
     if slot.status == "booked"
       error("Slot is not available")
     else

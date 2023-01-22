@@ -16,22 +16,32 @@ FactoryBot.define do
 
     password { "password" }
 
-    association :role, factory: :role, name: 'user'
+    association :role, factory: :role
+
+    trait :user do
+      association :role, factory: :role, name: 'user'
+    end
 
     trait :admin do
       association :role, factory: :role, name: 'admin'
     end
+
+    trait :with_confirmed_email do
+      confirmed_at { Time.now }
+    end
   end
 
   factory :parking do
-    name { "MyString" }
+    sequence :name do |n|
+      "Parking #{n}"
+    end
     address { "MyString" }
-    open_time { "2023-01-20 10:17:56" }
-    close_time { "MyString" }
+    open_time { "2023-01-25 10:17:56" }
+    close_time { "2023-01-25 10:17:56" }
   end
 
   factory :slot_type do
-    name { "MyString" }
+    name { "car" }
 
     association :parking, factory: :parking
   end
@@ -47,8 +57,9 @@ FactoryBot.define do
   end
 
   factory :reservation do
-    date_and_time { "2023-01-20 12:55:34" }
-    totat_price { 1 }
+    from { "2023-01-29 12:55:34" }
+    to { "2023-02-25 12:55:34" }
+    total_price { "10" }
     slot_type { "MyString" }
     number_of_hours { 1 }
 
@@ -57,11 +68,13 @@ FactoryBot.define do
   end
 
   factory :booking do
-    arrival_time { "MyString" }
+    arrival_time { "2023-01-24 12:55:34" }
     left_time { "MyString" }
     total_price { "MyString" }
     ref_code { "MyString" }
     license_plate { "MyString" }
-    slot { nil }
+    status { "pneding" }
+
+    association :slot, factory: :slot
   end
 end

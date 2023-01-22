@@ -15,7 +15,7 @@ class Api::SlotsController < PermissionsController
   def show
     slot = Slot.find_by(id: params[:id])
     if slot
-      calculation = Calculation.new(slot)
+      render json: slot
     else
       render json: "[]"
     end

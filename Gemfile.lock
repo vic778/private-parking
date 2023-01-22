@@ -431,7 +431,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.4)
   redis (~> 4.0)
-  rspec-rails (~> 5.1, >= 5.1.2)
+  rspec-rails
   rswag
   rswag-api
   rswag-ui
