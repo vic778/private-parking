@@ -33,5 +33,7 @@ Rails.application.routes.draw do
           put :cancel
         end
       end
+      resources :bookings
+      put 'check_in', to: 'bookings#check_in'
   end
 end
