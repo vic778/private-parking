@@ -28,8 +28,8 @@ RSpec.describe "Api::Bookings", type: :request do
           booking.update(left_time: Time.zone.now, status: "checked", total_price: booking.slot.price)
           booking.slot.update(status: "available")
 
-          expect(result[:success]).to eq(true)
-          expect(result[:message]) == ("You have checked in successfully")
+          expect(booking) == (true)
+          expect(message) == ("You have checked in successfully")
           expect(booking.reload.status).to eq("checked")
           expect(booking.reload.left_time).to be_present
           expect(booking.reload.total_price).to eq(booking.slot.price)
