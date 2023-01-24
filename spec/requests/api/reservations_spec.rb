@@ -13,12 +13,19 @@ RSpec.describe "Api::Reservations", type: :request do
       }
     end
 
-    # describe "Get all the reservations for the customer" do
-    #   it "returns all the reservations" do
-    #     reservation = create(:reservation, customer: @user)
-    #     get '/api/reservations', headers: @headers
-    #     expect(response.body).to eq([reservation].to_json)
-    #   end
-    # end
+    describe "Get all the reservations for the customer" do
+      it "returns all user's reservations" do
+        customer = create(:user)
+        slot = create(:slot, status: :available)
+        user_reservations = create(:reservation, customer:, slot:)
+        slots = customer.reservations.includes(:slot).map(&:slot)
+        get '/api/customer_slots', headers: @headers
+        response do
+          # binding.pry
+          data = JSON.parse(response.body)
+          expect(data['slots']).to eq(slots)
+        end
+      end
+    end
   end
 end
